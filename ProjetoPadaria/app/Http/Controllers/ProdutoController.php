@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Contato;
+use App\Produto;
 
-
-
-class ContatoController extends Controller
+class ProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,10 @@ class ContatoController extends Controller
      */
     public function index()
     {
-        $contatos = Contato::all();
+        $produtos = Produto::all();
 
-        //          nome da view       atributo q contém a resp da consulta
-        return view('contato',compact('contatos'));
+        return view('produto-pag', compact('produtos'));
+
     }
 
     /**
@@ -40,17 +38,17 @@ class ContatoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {    
-        $contato = new Contato();
+    {
+        $produtos = new Produto();
 
-        $contato->nome = $request->txNome;
-        $contato->email = $request->txEmail;
-        $contato->assunto = $request->txAssunto;
-        $contato->mensagem = $request->txMensagem;
+        $produtos->produto = $request->txProduto;
+        $produtos->descProduto = $request->txDesc;
+        $produtos->valorProduto = $request->txValor ;
+        $produtos->dataValidade = $request->txData;
 
-        $contato->save();
+        $produtos->save();
 
-        return redirect('/contato');
+        return redirect('/produto-pag');
     }
 
     /**

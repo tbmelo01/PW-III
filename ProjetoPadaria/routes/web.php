@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('index', function () {
     return view('index');
 });
-Route::get('/contato','ContatoController@index');
+Route::get('/produto-pag','ProdutoController@index');
+Route::post('/produto-pag','ProdutoController@store');
+Route::post('/index','ProdutoController@index');
 
-
-Route::post('/contato','ContatoController@store');
