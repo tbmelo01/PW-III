@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Produto;
+use App\Contato;
 
-class ProdutoController extends Controller
+
+
+class ContatoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +17,10 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::all();
+        $contatos = Contato::all();
 
-        return view('produto-pag', compact('produtos'));
-
+        //          nome da view       atributo q contém a resp da consulta
+        return view('contato',compact('contatos'));
     }
 
     /**
@@ -38,37 +40,17 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $produtos = new Produto();
+    {    
+        $contato = new Contato();
 
-        $produtos->produto = $request->txProduto;
-        $produtos->descProduto = $request->txDesc;
-        $produtos->valorProduto = $request->txValor ;
-        $produtos->dataValidade = $request->txData;
-        $produtos-> img = $request->txImg;
+        $contato->nome = $request->txNome;
+        $contato->email = $request->txEmail;
+        $contato->assunto = $request->txAssunto;
+        $contato->mensagem = $request->txMensagem;
 
+        $contato->save();
 
-        //upload de imagem
-
-                
-        if($request->hasfile('image') && $request->file('image')->isValid()){
-
-            $requestImage = $request->txImg;
-
-            $extension = $requestImage->esxtension();
-
-            $imageName = md5($requestImage->image->getClientoriginalName() . strtotime("now")) . "." . $extension;
-
-            $requestImage->move(public_path('img/fotos'), $imageName);
-
-            $produtos->image = $imageName;
-        
-        }
-
-
-        $produtos->save();
-
-        return redirect('/produto-pag');
+        return redirect('/contato');
     }
 
     /**

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 05-Set-2023 às 23:00
--- Versão do servidor: 5.7.36
--- versão do PHP: 7.4.26
+-- Tempo de geração: 10-Set-2023 às 01:44
+-- Versão do servidor: 8.0.31
+-- versão do PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,16 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbcadastro`
 --
 
 DROP TABLE IF EXISTS `tbcadastro`;
 CREATE TABLE IF NOT EXISTS `tbcadastro` (
-  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `idCliente` int NOT NULL AUTO_INCREMENT,
   `cpf` varchar(11) DEFAULT NULL,
   `nome` varchar(100) DEFAULT NULL,
-  `idade` int(3) DEFAULT NULL,
-  `telefone` int(11) DEFAULT NULL,
+  `idade` int DEFAULT NULL,
+  `telefone` int DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `senha` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`idCliente`)
@@ -47,10 +61,10 @@ CREATE TABLE IF NOT EXISTS `tbcadastro` (
 
 DROP TABLE IF EXISTS `tbcliente`;
 CREATE TABLE IF NOT EXISTS `tbcliente` (
-  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `idCliente` int NOT NULL AUTO_INCREMENT,
   `cpf` varchar(11) DEFAULT NULL,
   `nome` varchar(100) DEFAULT NULL,
-  `idade` int(3) DEFAULT NULL,
+  `idade` int DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `cpf` (`cpf`),
@@ -67,21 +81,30 @@ CREATE TABLE IF NOT EXISTS `tbcliente` (
 
 DROP TABLE IF EXISTS `tbprodutos`;
 CREATE TABLE IF NOT EXISTS `tbprodutos` (
-  `idProduto` int(11) NOT NULL AUTO_INCREMENT,
-  `produto` varchar(50) DEFAULT NULL,
-  `descProduto` varchar(500) DEFAULT NULL,
-  `valorProduto` double DEFAULT NULL,
-  `dataValidade` date DEFAULT NULL,
+  `idProduto` int NOT NULL AUTO_INCREMENT,
+  `produto` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `descProduto` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `valorProduto` double NOT NULL,
+  `dataValidade` date NOT NULL,
+  `img` text NOT NULL,
   PRIMARY KEY (`idProduto`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tbprodutos`
 --
 
-INSERT INTO `tbprodutos` (`idProduto`, `produto`, `descProduto`, `valorProduto`, `dataValidade`) VALUES
-(1, 'Pão', 'Francês', 1.99, '2023-09-07'),
-(2, 'Baguete', 'De queijo', 5.99, '2023-09-22');
+INSERT INTO `tbprodutos` (`idProduto`, `produto`, `descProduto`, `valorProduto`, `dataValidade`, `img`) VALUES
+(1, 'Pão', 'Francês', 1.99, '2023-09-07', ''),
+(2, 'Baguete', 'De queijo', 5.99, '2023-09-22', ''),
+(3, 'bolo', 'morango com caldas', 10, '2024-01-20', ''),
+(14, 'pão de queijo', 'mineiro', 2.5, '2023-11-30', ''),
+(7, 'sonho', 'pão com creme no meio', 5.99, '2023-10-20', ''),
+(16, 'teste', 'teste', 200, '1980-01-23', 'produtos-da-padaria-31282431.png'),
+(17, 'teste2', 'teste2', 300, '3333-02-21', '9c7be43979a736a8695361a544630b97.jpg'),
+(18, 'teste3', 'teste3', 4000, '5222-02-12', '9c7be43979a736a8695361a544630b97.jpg'),
+(19, 'teste4', 'teste4', 400, '3333-02-25', '9c7be43979a736a8695361a544630b97.jpg'),
+(20, 'teste5', 'teste5', 0.87, '4552-05-04', '9c7be43979a736a8695361a544630b97.jpg');
 
 -- --------------------------------------------------------
 
@@ -92,12 +115,30 @@ INSERT INTO `tbprodutos` (`idProduto`, `produto`, `descProduto`, `valorProduto`,
 DROP TABLE IF EXISTS `tbvenda`;
 CREATE TABLE IF NOT EXISTS `tbvenda` (
   `venda` varchar(100) DEFAULT NULL,
-  `idProduto` int(11) NOT NULL,
-  `qtdProduto` int(11) DEFAULT NULL,
-  `idCliente` int(11) NOT NULL,
+  `idProduto` int NOT NULL,
+  `qtdProduto` int DEFAULT NULL,
+  `idCliente` int NOT NULL,
   KEY `idProduto` (`idProduto`),
   KEY `idCliente` (`idCliente`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

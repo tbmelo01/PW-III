@@ -16,6 +16,9 @@
         <input type="text" placeholder= "Descrição"name="txDesc" />
         <input type="number" placeholder= "Valor" name="txValor" step="0.01" inputmode="decimal" />
         <input type="date" name="txData" />
+
+
+        <input type="file" id="image" name="txImg" class="form-control-file">
         
 
         <input type="submit" value="Salvar" />
