@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 10-Set-2023 às 01:44
+-- Tempo de geração: 11-Set-2023 às 18:05
 -- Versão do servidor: 8.0.31
--- versão do PHP: 7.4.33
+-- versão do PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `tbprodutos` (
   `dataValidade` date NOT NULL,
   `img` text NOT NULL,
   PRIMARY KEY (`idProduto`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tbprodutos`
@@ -104,7 +104,12 @@ INSERT INTO `tbprodutos` (`idProduto`, `produto`, `descProduto`, `valorProduto`,
 (17, 'teste2', 'teste2', 300, '3333-02-21', '9c7be43979a736a8695361a544630b97.jpg'),
 (18, 'teste3', 'teste3', 4000, '5222-02-12', '9c7be43979a736a8695361a544630b97.jpg'),
 (19, 'teste4', 'teste4', 400, '3333-02-25', '9c7be43979a736a8695361a544630b97.jpg'),
-(20, 'teste5', 'teste5', 0.87, '4552-05-04', '9c7be43979a736a8695361a544630b97.jpg');
+(20, 'teste5', 'teste5', 0.87, '4552-05-04', '9c7be43979a736a8695361a544630b97.jpg'),
+(21, 'teste 6', 'teste 6', 6, '2023-09-12', 'logo.png'),
+(22, 'teste 6', 'teste 6', 5, '2023-09-11', 'C:\\wamp64\\tmp\\phpF634.tmp'),
+(23, 'teste 6', 'teste 6', 7, '2023-09-10', 'C:\\wamp64\\tmp\\php4644.tmp'),
+(24, 'teste 6', 'teste 6', 8, '2023-09-12', 'C:\\wamp64\\tmp\\php57BC.tmp'),
+(25, 'teste 7', 'teste 7', 90, '2023-09-11', 'C:\\wamp64\\tmp\\php81F5.tmp');
 
 -- --------------------------------------------------------
 
@@ -131,10 +136,10 @@ CREATE TABLE IF NOT EXISTS `tbvenda` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)

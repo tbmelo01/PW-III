@@ -45,7 +45,7 @@ class ProdutoController extends Controller
         $produtos->descProduto = $request->txDesc;
         $produtos->valorProduto = $request->txValor ;
         $produtos->dataValidade = $request->txData;
-        $produtos-> img = $request->txImg;
+        $produtos->img = $request->image;
 
 
         //upload de imagem
@@ -53,15 +53,14 @@ class ProdutoController extends Controller
                 
         if($request->hasfile('image') && $request->file('image')->isValid()){
 
-            $requestImage = $request->txImg;
+            $requestImage = $request->file('image');
 
-            $extension = $requestImage->esxtension();
+            $extension = $requestImage->extension();
 
-            $imageName = md5($requestImage->image->getClientoriginalName() . strtotime("now")) . "." . $extension;
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
             $requestImage->move(public_path('img/fotos'), $imageName);
 
-            $produtos->image = $imageName;
         
         }
 

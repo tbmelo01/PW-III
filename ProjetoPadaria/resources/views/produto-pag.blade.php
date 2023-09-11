@@ -10,17 +10,15 @@
     <body>
     <h1><b>Cadastro</b></h1>
     <br>
-    <form class="formula" method="post" action="/produto-pag">
+    <form class="formula" method="post" action="/produto-pag" enctype="multipart/form-data">
     {{ csrf_field() }}
         <input type="text" placeholder= "Nome"name="txProduto" />
         <input type="text" placeholder= "Descrição"name="txDesc" />
         <input type="number" placeholder= "Valor" name="txValor" step="0.01" inputmode="decimal" />
         <input type="date" name="txData" />
 
-
-        <input type="file" id="image" name="txImg" class="form-control-file">
-        
-
+        <input type="file" id="image" name="image" class="form-control-file">
+    
         <input type="submit" value="Salvar" />
     </form>
 
