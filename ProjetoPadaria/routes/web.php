@@ -21,3 +21,4 @@ Route::get('/produto-pag','ProdutoController@index');
 Route::post('/produto-pag','ProdutoController@store');
 Route::post('/index','ProdutoController@index');
 
+
