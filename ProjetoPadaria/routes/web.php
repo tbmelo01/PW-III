@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('index', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/','IndexController@index');
+// Route::get('index', function () {
+//     return view('index');
+// });
 Route::get('/produto-pag','ProdutoController@index');
+
 Route::post('/produto-pag','ProdutoController@store');
 Route::post('/index','ProdutoController@index');
 

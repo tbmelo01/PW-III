@@ -39,14 +39,8 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $produtos = new Produto();
 
-        $produtos->produto = $request->txProduto;
-        $produtos->descProduto = $request->txDesc;
-        $produtos->valorProduto = $request->txValor ;
-        $produtos->dataValidade = $request->txData;
-        $produtos->img = $request->image;
-
+        $imageName = '';
 
         //upload de imagem
 
@@ -57,13 +51,20 @@ class ProdutoController extends Controller
 
             $extension = $requestImage->extension();
 
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            // $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $imageName = $requestImage->getClientOriginalName();
 
             $requestImage->move(public_path('img/fotos'), $imageName);
-
         
         }
 
+        $produtos = new Produto();
+
+        $produtos->produto = $request->txProduto;
+        $produtos->descProduto = $request->txDesc;
+        $produtos->valorProduto = $request->txValor ;
+        $produtos->dataValidade = $request->txData;
+        $produtos->img = $request->file('image')->getClientOriginalName();
 
         $produtos->save();
 

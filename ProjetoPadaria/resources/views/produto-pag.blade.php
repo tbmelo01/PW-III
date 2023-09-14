@@ -38,6 +38,7 @@
                 <td  class="sc" >{{$p->descProduto}}</td>
                 <td  class="sc" >{{$p->valorProduto}}</td>
                 <td  class="sc" >{{$p->dataValidade}}</td>
+                <td  class="sc" ><img src="img/fotos/{{$p->img}}"></td>
             </tr>
             
             @endforeach
