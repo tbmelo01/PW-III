@@ -34,10 +34,13 @@
             @foreach($produtos as $p)
 
             <tr>
-                <td  class="sc" >{{$p->produto}}</td>
+                
+                <td href="/produto/escolhido/{{$p->idProduto}}" class="sc" >{{$p->produto}}</td>
+                <a href="/produto/escolhido/{{$p->idProduto}}">Nome</a>
                 <td  class="sc" >{{$p->descProduto}}</td>
                 <td  class="sc" >{{$p->valorProduto}}</td>
                 <td  class="sc" >{{$p->dataValidade}}</td>
+                <a href="/produto/excluir/{{$p"></a>
                 <!-- <td  class="sc" ><img src="img/fotos/{{$p->img}}"></td> -->
             </tr>
             

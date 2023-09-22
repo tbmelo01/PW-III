@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Produto;
 
+use Illuminate\Support\Facades\DB;
+
 class ProdutoController extends Controller
 {
     /**
@@ -15,11 +17,22 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::all();
+        //$produtos = Produto::all();        
+        //$produtos = DB::table('tbProduto')->orderBy('valor','desc')->get();
+        //$produtos = DB::table('tbProduto')->orderBy('valor','asc')->get();
+
+        $sql = "select * from tbprodutos";
+        $produtos = DB::select($sql);
 
         return view('produto-pag', compact('produtos'));
-
     }
+
+    public function index2()
+    {
+        $produtos = Produto::all();        
+        return $produtos;
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -79,7 +92,9 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        //
+        $produtos = Produto::where('idProduto','=',$id)->get();
+
+        return view('produto-escolhido', compact('produtos'));
     }
 
     /**
@@ -113,6 +128,7 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Produto::where('idProduto', $id)->delete();
+        return redirect('/produto'); 
     }
 }
