@@ -18,11 +18,11 @@ class ProdutoController extends Controller
     public function index()
     {
         //$produtos = Produto::all();        
-        //$produtos = DB::table('tbProduto')->orderBy('valor','desc')->get();
+        $produtos = DB::table('tbprodutos')->orderBy('valorProduto','desc')->get();
         //$produtos = DB::table('tbProduto')->orderBy('valor','asc')->get();
 
-        $sql = "select * from tbprodutos";
-        $produtos = DB::select($sql);
+        // $sql = "select * from tbprodutos";
+        // $produtos = DB::select($sql);
 
         return view('produto-pag', compact('produtos'));
     }
@@ -73,6 +73,7 @@ class ProdutoController extends Controller
 
         $produtos = new Produto();
 
+        $produtos->idProduto;
         $produtos->produto = $request->txProduto;
         $produtos->descProduto = $request->txDesc;
         $produtos->valorProduto = $request->txValor ;
@@ -129,6 +130,6 @@ class ProdutoController extends Controller
     public function destroy($id)
     {
         Produto::where('idProduto', $id)->delete();
-        return redirect('/produto'); 
+        return redirect('/produto-pag'); 
     }
 }

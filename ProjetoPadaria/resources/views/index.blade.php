@@ -2,7 +2,7 @@
 <html lang="pt">
     <head>
 
-        <?php //use App\Http\Controllers\ProdutoController; ?>
+        <?php use App\Http\Controllers\ProdutoController; ?>
 
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -24,6 +24,7 @@
     <body>
 
         <header class="cabecalho">
+            <h1>Padaria Camargo</h1>
             <nav>
                 <a href="produto-pag">
                     <li>Teste</li>
@@ -102,21 +103,19 @@
             crossorigin="anonymous"></script>
 
         <div class="container">
-
-            @foreach($produtos as $p)
-            <div class="div-produto">
-                <img src="img/fotos/{{$p->img}}">
-                <br>
-                <div class="titulo">{{$p->produto}}</div>
-                <br>
-                <div class="desc">{{$p->descProduto}}</div>
-                <br>
-                <div class="valor">Preço: {{$p->valorProduto}} R$</div>
-                <br>
-                <div class="datavalidade">Data de Validade: {{$p->dataValidade}}</div>
-            </div>
-            @endforeach
-
+                        @foreach($produtos as $p)
+                        <div class="div-produto">
+                            <img src="img/fotos/{{$p->img}}">
+                            <br>
+                            <a href="/produto/escolhido/{{$p->idProduto}}" class="titulo"> {{$p->produto}}</a>
+                            <br>
+                            <div class="desc">{{$p->descProduto}}</div>
+                            <br>
+                            <div class="valor">Preço: {{$p->valorProduto}} R$</div>
+                            <br>
+                            <div class="datavalidade">Data de Validade: {{$p->dataValidade}}</div>
+                        </div>       
+                @endforeach
         </div>
     </body>
 </html>

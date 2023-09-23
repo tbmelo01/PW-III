@@ -25,4 +25,5 @@ Route::post('/produto-pag','ProdutoController@store');
 Route::post('/index','ProdutoController@index');
 
 Route::get('/produto/escolhido/{id}','ProdutoController@show');
+Route::get('/produto/excluir/{idProduto}','ProdutoController@destroy');
 
