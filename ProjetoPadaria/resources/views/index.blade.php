@@ -19,31 +19,23 @@
         <link rel="stylesheet" href="./css/index.css">
 
         <title>Padaria Camargo</title>
+        <br>
     </head>
 
     <body>
-
-        <header class="cabecalho">
+    <header class="cabecalho">
+        <div class="container">
             <h1>Padaria Camargo</h1>
             <nav>
-                <a href="produto-pag">
-                    <li>Teste</li>
-                </a>
-                <a href="#">
-                    <li>Login</li>
-                </a>
-                <a href="#">
-                    <li>Fale conosco</li>
-                </a>
-                <a href="#">
-                    <li>Cadastre-se</li>
-                </a>
+                <ul>
+                    <li><a href="produto-pag">Teste</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Fale conosco</a></li>
+                    <li><a href="#">Cadastre-se</a></li>
+                </ul>
             </nav>
-            <br>
-            <br>
-            <br>
-            <br>
-        </header>
+        </div>
+    </header>
         <!-- <div class="container"> -->
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -101,22 +93,27 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-
-        <div class="container">
-                        @foreach($produtos as $p)
-                        <div class="div-produto">
-                            <img src="img/fotos/{{$p->img}}">
-                            <br>
-                            <a href="/produto/escolhido/{{$p->idProduto}}" class="titulo"> {{$p->produto}}</a>
-                            <br>
-                            <div class="desc">{{$p->descProduto}}</div>
-                            <br>
-                            <div class="valor">Preço: {{$p->valorProduto}} R$</div>
-                            <br>
-                            <div class="datavalidade">Data de Validade: {{$p->dataValidade}}</div>
-                        </div>       
-                @endforeach
+            <div id="overlay"></div>
+    <div class="container">
+        @foreach($produtos as $p)
+        <div class="imagem-container">
+            <img src="img/fotos/{{$p->img}}" alt="Imagem {{$p->idProduto}}" class="imagem-produto-fora">
+            <div id="div-produto-{{$p->idProduto}}" class="div-produto">
+                <img src="img/fotos/{{$p->img}}" alt="Imagem {{$p->idProduto}}" class="imagem-produto-dentro">
+                <br>
+                <a href="/produto/escolhido/{{$p->idProduto}}" class="titulo"> {{$p->produto}}</a>
+                <br>
+                <div class="desc">{{$p->descProduto}}</div>
+                <br>
+                <div class="valor">Preço: {{$p->valorProduto}} R$</div>
+                <br>
+                <div class="datavalidade">Data de Validade: {{$p->dataValidade}}</div>
+            </div>  
         </div>
+        @endforeach
+    </div>
+         
+                <script src="./js/script.js"></script>
     </body>
 </html>
 
