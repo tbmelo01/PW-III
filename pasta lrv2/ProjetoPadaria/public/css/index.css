@@ -1,0 +1,265 @@
+*{
+    margin: 0px; 
+    padding: 0px; 
+    font-family: Helvetica;
+    text-decoration: none;
+}
+
+.cabecalho {
+    background-color: #8B4513;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 20px; */
+    
+}
+
+.cabecalho .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.cabecalho h1 {
+    font-size: 3.5em; 
+    margin-bottom: 10px; 
+    margin-left: 140px;
+}
+
+.cabecalho nav ul {
+    list-style: none;
+    padding: 0; 
+    margin-right: 4px;
+}
+
+.cabecalho nav ul li {
+    display: inline;
+    margin-right: 30px;
+    margin: 5px;
+    justify-content: center;
+}
+
+.cabecalho nav ul li:last-child {
+    margin-right: 0; 
+}
+
+.cabecalho nav ul li a {
+    text-decoration: none;
+    color: #fff; 
+    font-weight: bold; 
+    transition: color 0.3s;
+    font-size: 1.5em;
+}
+
+.cabecalho nav ul li a:hover {
+    color: #FF5733; 
+}
+
+
+@media (max-width: 768px) {
+    .cabecalho .container {
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .cabecalho h1 {
+        font-size: 24px; 
+    }
+
+    .cabecalho nav ul {
+        margin-top: 20px;
+    }
+
+    .cabecalho nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+body{    
+    margin:0;
+    background-color: #F3E1A9;
+    background-attachment: fixed;
+    padding: 0.1px;
+
+    text-align: center;
+}
+
+.formula {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    color: black;
+}
+
+input{
+    margin-top: 0.5%;
+    max-width: 60%;
+    margin-left: 20%;
+    border-radius:10px;
+}
+header{
+    background-color: #8B572A;
+    text-align: center;
+    padding: 10px;
+}
+header h1 {
+    color: #FFD700;
+    font-family: 'Cursive', cursive;
+    font-size: 36em;
+}
+nav {
+    /* background-color: #8B572A; */
+    padding: 15px 0;
+    margin-right: 6em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+li a {
+    text-decoration: none;
+    color: #E0CDA5;
+    font-weight: bold;
+    font-size: x-large;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 30px;
+    padding: 10px;
+}
+
+li a:hover {
+    background-color: #FFD700;
+    color: #8B572A;
+    border-radius: 7px;
+    padding: 10 20px;
+
+}
+
+/* nav{
+    width: 100%;
+    position: fixed;
+    height: 100px;
+    background-color: #e4c771; 
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    padding: 0 20px;
+    justify-content: space-around;
+    color: #ffffff;
+    font-size: larger;
+    border-radius: 1.5%;
+} */
+
+ .carousel-item{
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 2%;
+ }
+
+ .cabecalho a {
+    color: #ffffff;
+    font-size: larger;
+ }
+
+ .container{
+     display: flex;
+     flex-direction: row;
+     text-align: center;
+     margin-left: 15em;
+ }
+
+ #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.div-produto {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+}
+
+.imagem-container {
+    position: relative;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.imagem-produto-fora {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    border-radius: 3.5px;
+}
+
+.imagem-produto-fora:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s;
+}
+
+.imagem-produto-dentro {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    border-radius: 3.5px;
+}
+
+.titulo {
+    font-weight: bold;
+    color: #8B4513;
+}
+
+.desc {
+    font-style: italic;
+}
+
+.valor {
+    font-weight: bold;
+    color: #8B4513;
+}
+
+.datavalidade {
+    font-style: italic;
+    color: #8B4513;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .imagem-container {
+        margin: 10px;
+    }
+}
