@@ -36,7 +36,6 @@
             </nav>
         </div>
     </header>
-        <!-- <div class="container"> -->
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -93,9 +92,16 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+            <br>
+            <h1>Produtos</h1>
+            <br>
             <div id="overlay"></div>
-    <div class="container">
+    <div class="container-produtos">
+    <?php// $count = 0; ?>
         @foreach($produtos as $p)
+        <?php// if ($count % 4 == 0): ?>
+            <!-- <div class="product-row"> -->
+            <?php// endif; ?>
         <div class="imagem-container">
             <img src="img/fotos/{{$p->img}}" alt="Imagem {{$p->idProduto}}" class="imagem-produto-fora">
             <div id="div-produto-{{$p->idProduto}}" class="div-produto">
@@ -108,8 +114,12 @@
                 <div class="valor">Preço: {{$p->valorProduto}} R$</div>
                 <br>
                 <div class="datavalidade">Data de Validade: {{$p->dataValidade}}</div>
-            </div>  
+                <?php// if ($count % 4 == 3 || $loop->last): ?>
+                    </div>
+        <?php// endif; ?>
+            <!-- </div>   -->
         </div>
+        <?php// $count++; ?>
         @endforeach
     </div>
          
