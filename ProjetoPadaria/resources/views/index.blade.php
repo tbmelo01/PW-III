@@ -28,9 +28,9 @@
             <h1>Padaria Camargo</h1>
             <nav>
                 <ul>
-                    <li><a href="produto-pag">Teste</a></li>
+                    <li><a href="produto-pag">Cadastrar Produtos</a></li>
                     <li><a href="#">Login</a></li>
-                    <li><a href="#">Fale conosco</a></li>
+                    <li><a href="#">Fale Conosco</a></li>
                     <li><a href="#">Cadastre-se</a></li>
                 </ul>
             </nav>
@@ -45,11 +45,11 @@
             <div class="carousel-inner" style="height:60em">
                 <div
                     class="carousel-item active"
-                    style="background-image: url('./img/img1.png');"></div>
+                    style="background-image: url('./img/carrossel/foto2.jpg');"></div>
 
-                <div class="carousel-item" style="background-image: url('./img/img2.png');"></div>
+                <div class="carousel-item" style="background-image: url('./img/carrossel/foto1.jpg');"></div>
 
-                <div class="carousel-item" style="background-image: url('./img/img3.png');"></div>
+                <div class="carousel-item" style="background-image: url('./img/carrossel/foto3.avif');"></div>
 
             </div>
 
