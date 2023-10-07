@@ -135,7 +135,9 @@ li a {
     font-weight: bold;
     font-size: x-large;
     transition: background-color 0.3s, color 0.3s;
-    margin: 60px;
+    margin: 18.5px;
+
+    
 }
 
 li a:hover {

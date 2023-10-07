@@ -28,7 +28,7 @@
             <h1>Padaria Camargo</h1>
             <nav>
                 <ul>
-                    <li><a href="produto-pag">Cadastrar Produtos</a></li>
+                    <!-- <li><a href="produto-pag">Cadastrar Produtos</a></li> -->
                     <li><a href="#">Login</a></li>
                     <li><a href="#">Fale Conosco</a></li>
                     <li><a href="#">Cadastre-se</a></li>
@@ -42,7 +42,7 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner" style="height:60em">
+            <div class="carousel-inner" style="height:40em">
                 <div
                     class="carousel-item active"
                     style="background-image: url('./img/carrossel/foto2.jpg');"></div>
@@ -70,13 +70,10 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
+  
         </div>
+
+        <br><br>
         <!-- </div> -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
