@@ -24,25 +24,24 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* flex-wrap: wrap; */
-
 }
 
 .cabecalho h1 {
-    font-size: 3.5em; 
+    font-size: 2.5em; 
     text-align: left;
 }
 
 .cabecalho nav ul {
     list-style: none;
-    padding: 0; 
-    margin-right: 4px;
+    /* padding: 0; 
+    margin-right: 4px; */
 }
 
 .cabecalho nav ul li {
     display: inline;
     margin-right: 30px;
     margin: 5px;
+
     /* justify-content: center; */
 }
 
@@ -115,10 +114,9 @@ header h1 {
     font-family: 'Cursive', cursive;
     font-size: 36px;
 }
-nav {
-    background-color: #8B572A;
+/* nav {
     padding: 15px 0;
-}
+} */
 
 ul {
     list-style-type: none;
