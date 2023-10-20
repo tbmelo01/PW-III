@@ -29,7 +29,7 @@
             <nav>
                 <ul>
                     <!-- <li><a href="produto-pag">Cadastrar Produtos</a></li> -->
-                    <li><a href="#">Login</a></li>
+                    <li><a href="{{ route('grafico') }}">Login</a></li>
                     <li><a href="#">Fale Conosco</a></li>
                     <li><a href="#">Cadastre-se</a></li>
                 </ul>
@@ -102,15 +102,16 @@
         <div class="imagem-container">
             <img src="img/fotos/{{$p->img}}" alt="Imagem {{$p->idProduto}}" class="imagem-produto-fora">
             <div id="div-produto-{{$p->idProduto}}" class="div-produto">
-                <img src="img/fotos/{{$p->img}}" alt="Imagem {{$p->idProduto}}" class="imagem-produto-dentro">
+                <a href="/produto/escolhido/{{$p->idProduto}}"> <img src="img/fotos/{{$p->img}}" alt="Imagem {{$p->idProduto}}" class="imagem-produto-dentro"></a>
                 <br>
-                <a href="/produto/escolhido/{{$p->idProduto}}" class="titulo"> {{$p->produto}}</a>
+                <div class="titulo"> {{$p->produto}}</div>
                 <br>
                 <div class="desc">{{$p->descProduto}}</div>
                 <br>
                 <div class="valor">Preço: {{$p->valorProduto}} R$</div>
                 <br>
                 <div class="datavalidade">Data de Validade: {{$p->dataValidade}}</div>
+                
                 <?php// if ($count % 4 == 3 || $loop->last): ?>
                     </div>
         <?php// endif; ?>

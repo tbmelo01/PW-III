@@ -16,9 +16,9 @@
 // });
 
 Route::get('/','IndexController@index');
-// Route::get('index', function () {
-//     return view('index');
-// });
+
+Route::get('/grafico', 'GraficoController@index')->name('grafico');
+
 Route::get('/produto-pag','ProdutoController@index');
 
 Route::post('/produto-pag','ProdutoController@store');
