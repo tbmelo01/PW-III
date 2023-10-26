@@ -24,8 +24,8 @@
 
     <body>
     <header class="cabecalho">
-        <div class="container">
-            <h1>Padaria Camargo</h1>
+        <h1>Padaria Camargo</h1>
+        <div class="menu">
             <nav>
                 <ul>
                     <!-- <li><a href="produto-pag">Cadastrar Produtos</a></li> -->
