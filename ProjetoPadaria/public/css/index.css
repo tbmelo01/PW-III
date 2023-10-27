@@ -19,17 +19,13 @@ header{
     text-align: center;
     padding: 10px;
 }
+
 header h1 {
     color: #FFD700;
     font-family: 'Cursive', cursive;
     font-size: 36px;
-    margin-right: 27.5%;
+    margin-left: 3%;
 }
-/* nav {
-    padding: 15px 0;
-} */
-
-
 
 .cabecalho {
     background-color: #8B4513;
@@ -42,14 +38,15 @@ header h1 {
     z-index: 100;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     
 }
 
 .cabecalho .menu {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
+    margin-right: 3%;
 }
 
 .cabecalho h1 {
@@ -64,8 +61,7 @@ header h1 {
 
 .cabecalho nav ul {
     list-style: none;
-    /* padding: 0; 
-    margin-right: 4px; */
+    
 }
 
 .cabecalho nav ul li {
@@ -73,7 +69,6 @@ header h1 {
     margin-right: 30px;
     margin: 5px;
 
-    /* justify-content: center; */
 }
 
 .cabecalho nav ul li:last-child {
@@ -167,7 +162,8 @@ input{
      flex-wrap: wrap;
      flex-direction: row;
      text-align: center;
-     justify-content: center;
+     /* justify-content: flex-start; */
+     margin-left: 13%;
  }
  #overlay {
     display: none;
