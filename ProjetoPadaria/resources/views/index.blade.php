@@ -91,7 +91,7 @@
         </script>
 
             <br>
-                <h1>Produtos</h1>
+                <h1 class="titulo-index">Produtos</h1>
             <br>
 
             <div id="overlay"></div>
