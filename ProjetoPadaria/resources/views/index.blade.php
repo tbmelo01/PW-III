@@ -16,8 +16,10 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/index.css">
-
+            <link rel="stylesheet" href="./css/index.css">
+            <link rel="stylesheet" href="./js/footer.js">
+            <!-- <link rel="stylesheet" href="./css/produto-pag.css"> -->
+            
         <title>Padaria Camargo</title>
         <br>
     </head>
@@ -28,11 +30,11 @@
         <div class="menu">
             <nav>
                 <ul>
-                    <li><a href="#">Página Inicial</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Sobre Nós</a></li>
-                    <li><a href="#">Contato</a></li>
-                    <li><a href="/produto-pag">Login</a></li>
+                    <li><a href="#">            <button> Página Inicial </button>   </a></li>
+                    <li><a href="#">            <button> Menu           </button>   </a></li>
+                    <li><a href="#">            <button> Sobre Nós      </button>   </a></li>
+                    <li><a href="#">            <button> Contato        </button>   </a></li>
+                    <li><a href="/produto-pag"> <button> Login          </button>   </a></li>
 
                 </ul>
             </nav>
@@ -99,12 +101,12 @@
         <div class="container-produtos">
             
     
-                 @foreach($produtos as $p)
+             @foreach($produtos as $p)
             
                 <div class="imagem-container">
 
                     <img src="img/fotos/{{$p->img}}" alt="Imagem {{$p->idProduto}}" class="imagem-produto-fora">
-
+                    
                     <div id="div-produto-{{$p->idProduto}}" class="div-produto">
 
                         <a href="/produto/escolhido/{{$p->idProduto}}"> <img src="img/fotos/{{$p->img}}" alt="Imagem {{$p->idProduto}}" class="imagem-produto-dentro"></a>
@@ -124,14 +126,41 @@
                         <br>
 
                         <div class="datavalidade">Data de Validade: {{$p->dataValidade}}</div>
-                    </div>
-                        
+                    </div>          
                 </div>
-            @endforeach
+                   
+             @endforeach
         </div>
          
-                <script src="./js/script.js"></script>
-    </body>
+    <script src="./js/script.js"></script>
+    <script src="./js/footer.js"></script>
+
+    <footer>
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- Adicionando Javascript -->
+
+        <!-- Inicio do formulario -->
+        <form method="get" action=".">
+            <div class="cep">
+                <label class="labe"> <h4> Cep: </h4>
+                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                    onblur="pesquisacep(this.value);" /></label><br />
+                <label class="labe" > <h4> Rua: </h4>
+                <input name="rua" type="text" id="rua" size="60" /></label><br />
+                <label class="labe" > <h4> Bairro: </h4>
+                <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                <label class="labe" > <h4> Cidade: </h4>
+                <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                <label class="labe" > <h4> Estado: </h4>
+                <input name="uf" type="text" id="uf" size="2" /></label><br />
+                <label class="labe" > <h4> IBGE: </h4>
+                <input name="ibge" type="text" id="ibge" size="8" /></label><br />
+            </div>    
+        </form>
+
+    </footer>
 </html>
 
 <!-- <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta
