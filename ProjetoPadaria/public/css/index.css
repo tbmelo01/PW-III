@@ -285,23 +285,41 @@ input{
     color: #8B4513;
 }
 
-.cep{
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    margin-top: 8%;
-    justify-content: flex-start;
-}
-.cep input {
+.formula {
+    background-color: #F3E1A9;
+    padding: 20px;
+    border: 1px solid #F3E1A9;
     border-radius: 5px;
-    border: none;
+    margin-bottom: 20px;
+    color: #8B4513;
 }
 
-.cep label {
-    color:#8B4513;
+.formula input[type="text"],
+.formula input[type="number"],
+.formula input[type="date"],
+.formula input[type="file"],
+.formula input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+   
+    border-radius: 3px;
 }
 
-/* .labe{
+.formula input[type="submit"] {
+    background-color: #964B00;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.insere{
     display: flex;
-    flex-direction: column;
-} */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8B4513;
+}
+hr{
+    border: 1px solid #8B4513;
+    margin-top: 10%;
+}

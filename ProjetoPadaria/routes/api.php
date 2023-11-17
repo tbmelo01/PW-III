@@ -17,3 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/produto-pag','ProdutoController@index2');
+Route::get('/grafico','VendaController@index2');
+
+Route::delete('/grafico/excluir/{id}','GraficoController@destroyApi');
+Route::put('/grafico/alterar/{id}','VendaController@updateApi');

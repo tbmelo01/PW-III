@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Produto;
+use App\Venda;
 use Illuminate\Support\Facades\DB;
 
 class VendaController extends Controller
@@ -19,6 +20,11 @@ class VendaController extends Controller
         $vendas = DB::select($sql);
 
         return view('grafico',compact('vendas'));
+    }
+    public function index2()
+    {
+        $vendas = Venda::all();        
+        return $vendas;
     }
     /**
      * Show the form for creating a new resource.
@@ -74,6 +80,10 @@ class VendaController extends Controller
     {
         //
     }
+    public function updateApi(Request $request, $id)
+    {
+        //
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -84,5 +94,10 @@ class VendaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function destroyApi($id)
+    {
+        Produto::where('idProduto', $id)->delete();
+        return redirect('/produto-pag'); 
     }
 }

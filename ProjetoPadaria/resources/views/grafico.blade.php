@@ -39,7 +39,7 @@
 
       <!-- gráfico de coluna -->
 
-
+<!-- 
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -67,7 +67,7 @@
         var chart = new google.visualization.ComboChart(document.getElementById('chart_div2'));
         chart.draw(data, options);
       }
-    </script>
+    </script> -->
 
       <!-- gráfico de linha -->
 
@@ -115,7 +115,7 @@
     <body>
 
     <div class="chart-container">
-        <div class="chart" id="chart_div1" ></div>
+        <div class="chart" id="chart_div1" style="width: 1000px; height: 800px;" ></div>
 
         <div class="chart" id="chart_div2" style="width: 900px; height: 500px;"></div>
     </div>

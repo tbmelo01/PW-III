@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 29-Set-2023 às 01:20
--- Versão do servidor: 8.0.31
--- versão do PHP: 7.4.33
+-- Tempo de geração: 17-Nov-2023 às 01:24
+-- Versão do servidor: 5.7.36
+-- versão do PHP: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -43,11 +43,11 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 
 DROP TABLE IF EXISTS `tbcadastro`;
 CREATE TABLE IF NOT EXISTS `tbcadastro` (
-  `idCliente` int NOT NULL AUTO_INCREMENT,
+  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `cpf` varchar(11) DEFAULT NULL,
   `nome` varchar(100) DEFAULT NULL,
-  `idade` int DEFAULT NULL,
-  `telefone` int DEFAULT NULL,
+  `idade` int(11) DEFAULT NULL,
+  `telefone` int(11) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `senha` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`idCliente`)
@@ -61,10 +61,10 @@ CREATE TABLE IF NOT EXISTS `tbcadastro` (
 
 DROP TABLE IF EXISTS `tbcliente`;
 CREATE TABLE IF NOT EXISTS `tbcliente` (
-  `idCliente` int NOT NULL AUTO_INCREMENT,
+  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `cpf` varchar(11) DEFAULT NULL,
   `nome` varchar(100) DEFAULT NULL,
-  `idade` int DEFAULT NULL,
+  `idade` int(11) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `cpf` (`cpf`),
@@ -81,9 +81,9 @@ CREATE TABLE IF NOT EXISTS `tbcliente` (
 
 DROP TABLE IF EXISTS `tbprodutos`;
 CREATE TABLE IF NOT EXISTS `tbprodutos` (
-  `idProduto` int NOT NULL AUTO_INCREMENT,
-  `produto` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `descProduto` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `idProduto` int(11) NOT NULL AUTO_INCREMENT,
+  `produto` varchar(50) NOT NULL,
+  `descProduto` varchar(500) NOT NULL,
   `valorProduto` double NOT NULL,
   `dataValidade` date NOT NULL,
   `img` text NOT NULL,
@@ -113,13 +113,26 @@ INSERT INTO `tbprodutos` (`idProduto`, `produto`, `descProduto`, `valorProduto`,
 
 DROP TABLE IF EXISTS `tbvenda`;
 CREATE TABLE IF NOT EXISTS `tbvenda` (
-  `venda` varchar(100) DEFAULT NULL,
-  `idProduto` int NOT NULL,
-  `qtdProduto` int DEFAULT NULL,
-  `idCliente` int NOT NULL,
-  KEY `idProduto` (`idProduto`),
-  KEY `idCliente` (`idCliente`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `idVenda` int(11) NOT NULL AUTO_INCREMENT,
+  `idProduto` int(11) DEFAULT NULL,
+  `qtdProduto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idVenda`),
+  KEY `idProduto` (`idProduto`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbvenda`
+--
+
+INSERT INTO `tbvenda` (`idVenda`, `idProduto`, `qtdProduto`) VALUES
+(1, 1, 5),
+(2, 1, 2),
+(3, 2, 8),
+(4, 1, 7),
+(5, 3, 4),
+(6, 3, 9),
+(7, 1, 2),
+(8, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -129,11 +142,11 @@ CREATE TABLE IF NOT EXISTS `tbvenda` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)

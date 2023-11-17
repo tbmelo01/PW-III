@@ -32,7 +32,7 @@
                 <ul>
                     <li><a href="#">            <button> Página Inicial </button>   </a></li>
                     <li><a href="#">            <button> Menu           </button>   </a></li>
-                    <li><a href="#">            <button> Sobre Nós      </button>   </a></li>
+                    <li><a href="/grafico">     <button> Sobre Nós      </button>   </a></li>
                     <li><a href="#">            <button> Contato        </button>   </a></li>
                     <li><a href="/produto-pag"> <button> Login          </button>   </a></li>
 
@@ -136,31 +136,78 @@
     <script src="./js/footer.js"></script>
 
     <footer>
-    
+    <hr>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <!-- Adicionando Javascript -->
 
         <!-- Inicio do formulario -->
-        <form method="get" action=".">
-            <div class="cep">
-                <label class="labe"> <h4> Cep: </h4>
-                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                    onblur="pesquisacep(this.value);" /></label><br />
-                <label class="labe" > <h4> Rua: </h4>
-                <input name="rua" type="text" id="rua" size="60" /></label><br />
-                <label class="labe" > <h4> Bairro: </h4>
-                <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-                <label class="labe" > <h4> Cidade: </h4>
-                <input name="cidade" type="text" id="cidade" size="40" /></label><br />
-                <label class="labe" > <h4> Estado: </h4>
-                <input name="uf" type="text" id="uf" size="2" /></label><br />
-                <label class="labe" > <h4> IBGE: </h4>
-                <input name="ibge" type="text" id="ibge" size="8" /></label><br />
-            </div>    
+        <form class="formula" method="get" action=".">
+        
+            <div  class="container" >
+
+            
+
+              
+
+                <h1> <strong> Descubra o Seu Endereço </strong> </h1>
+               
+                <br><br><br><br>
+
+                <div>
+                    <label class="labe"> <h4> Cep: </h4> 
+                </div>
+
+                <div>
+                    <input class="insere" name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                        onblur="pesquisacep(this.value);" /></label><br />
+                </div>
+
+                <div>
+                    <label class="labe" > <h4> Rua: </h4>
+                </div>
+                
+                <div>
+                    <input class="insere" name="rua" type="text" id="rua" size="60" /></label><br />
+                </div>
+
+                <div>
+                    <label class="labe" > <h4> Bairro: </h4>
+                </div>
+
+                <div>
+                    <input class="insere" name="bairro" type="text" id="bairro" size="40" /></label><br />
+                </div>
+
+                <div>
+                    <label class="labe" > <h4> Cidade: </h4>
+                </div>
+
+                <div>
+                    <input class="insere" name="cidade" type="text" id="cidade" size="40" /></label><br />
+                </div>
+
+                <div>
+                    <label class="labe" > <h4> Estado: </h4>
+                </div>
+
+                <div>
+                    <input class="insere" name="uf" type="text" id="uf" size="2" /></label><br />
+                </div>
+
+                <div>
+                    <label class="labe" > <h4> IBGE: </h4>
+                </div>
+
+                <div>
+                    <input class="insere" name="ibge" type="text" id="ibge" size="8" /></label><br />
+                </div>
+            </div>
+                
         </form>
 
     </footer>
+
 </html>
 
 <!-- <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta
