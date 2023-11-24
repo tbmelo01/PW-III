@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Middleware\Authenticate;
+use Illuminate\Auth\AuthenticationException;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +18,8 @@
 //     return view('index');
 // });
 
+
+
 Route::get('/','IndexController@index');
 
 Route::get('/grafico', 'GraficoController@index')->name('grafico');
@@ -28,3 +33,28 @@ Route::get('/produto/escolhido/{id}','ProdutoController@show');
 Route::get('/produto/excluir/{idProduto}','ProdutoController@destroy');
 
 Route::get('/grafico','VendaController@index');
+
+
+
+
+Route::post('/usuario','Auth\RegisterController@store');
+Route::get('/usuario', function () {
+    return view('usuario');
+});
+
+Route::post('/login','Auth\RegisterController@verifyUser');
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/logout','Auth\RegisterController@logoutUser');
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth');
+
+
+

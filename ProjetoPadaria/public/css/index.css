@@ -137,6 +137,11 @@ button{
     
 }
 
+button:focus {
+    outline: none !important;
+    
+}
+
 button:hover{
 
     background-color: #FFD700;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 17-Nov-2023 às 01:24
+-- Tempo de geração: 24-Nov-2023 às 01:31
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -33,6 +33,30 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2023_09_10_011846_add_image_to_ProjetoPadaria_table', 1),
+(4, '2023_09_10_012045_add_img_to_ProjetoPadaria_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+CREATE TABLE IF NOT EXISTS `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -143,14 +167,24 @@ INSERT INTO `tbvenda` (`idVenda`, `idProduto`, `qtdProduto`) VALUES
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Maria', 'maria@gmail.com', '$2y$10$zBiSRm.lQTEjxk4jEvPX9.DC2T9f48R819/jVYWSpiauVM.C/1n/2', '8bruhr0UtT90rx3iUwsBT7JacRbsYAVZTSM5OCP60DdZfFGbvWu3H5O0oiGq', '2023-11-23 03:00:00', '2023-11-23 03:00:00'),
+(2, 'tiago', 'tiago@gmail.com', '$2y$10$9BqdlcqkyV35/0gR6.HAm..M/sKyaZszz1EEz4gElakBnbT8sRBYa', NULL, '2023-11-24 03:00:00', '2023-11-24 03:00:00'),
+(3, 'felipe', 'felipe@gmail.com', '$2y$10$veG1PDUdB4ob1UmFPCY6TuF7CCj4ixTOZuYLJs8LVBQAT5gP6NcXy', 'mPbPYAIfyDimbZnTZrcaaKG03d9ejbsfE3Xgs7BdpHzjlkC3HhIpPm1GuklH', '2023-11-24 03:00:00', '2023-11-24 03:00:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

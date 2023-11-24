@@ -206,6 +206,22 @@
                 
         </form>
 
+
+        <form action="/login" method="post">
+        {{ csrf_field() }}
+        <div>
+            <input type="text" name="email" value="maria@gmail.com" />            
+        </div>
+
+        <div>
+            <input type="text" name="password" value="123456" />            
+        </div>
+
+        <div>
+            <input type="submit" value="Login" />
+        </div>  
+    </form>
+
     </footer>
 
 </html>
