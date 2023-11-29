@@ -43,9 +43,9 @@ Route::get('/usuario', function () {
 });
 
 Route::post('/login','Auth\RegisterController@verifyUser');
-Route::get('/login', function () {
+Route::get('login',array('as'=>'login',function(){
     return view('login');
-});
+}));
 
 Route::get('/logout','Auth\RegisterController@logoutUser');
 Route::get('/index', function () {
