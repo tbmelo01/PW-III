@@ -297,6 +297,7 @@ input{
     border-radius: 5px;
     margin-bottom: 20px;
     color: #8B4513;
+    margin-right: 14.5%;
 }
 
 .formula input[type="text"],
@@ -327,4 +328,13 @@ input{
 hr{
     border: 1px solid #8B4513;
     margin-top: 10%;
+}
+
+.log{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 19%;
+    margin-bottom: 3%;
 }
