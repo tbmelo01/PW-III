@@ -301,6 +301,7 @@ input{
 }
 
 .formula input[type="text"],
+.formula input[type="password"],
 .formula input[type="number"],
 .formula input[type="date"],
 .formula input[type="file"],

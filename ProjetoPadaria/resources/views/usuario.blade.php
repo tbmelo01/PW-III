@@ -14,7 +14,7 @@ class="formula" method="post" action="/usuario" enctype="multipart/form-data">
 
                     <input type="text" placeholder= "Nome" name="nome" />
                     <input type="text" placeholder= "Email" name="email" />
-                    <input type="text" placeholder= "Senha" name="senha" />
+                    <input type="password" placeholder= "Senha" name="senha" />
 
                     <input type="submit" value="Salvar" />
                 </form>
